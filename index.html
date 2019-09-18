@@ -1,0 +1,125 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Office of International Education Check-In
+	</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/bootstrap-grid.min.css" rel="stylesheet">
+	<link href="css/bootstrap-reboot.min.css" rel="stylesheet">
+	<link href="css/custom.css" rel="stylesheet">	
+	<link href="css/font-awesome.min.css" rel="stylesheet">	
+	<link href="css/font-awesome-animation.min.css" rel="stylesheet">	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">	
+	</script>
+	<script src="js/jquery.bootstrap-growl.min.js">
+	</script>
+	<script src="js/stickyfill.min.js">
+	</script>
+	<script src="js/bootstrap.min.js">
+	</script>
+	<script src="js/angular.min.js">
+	</script>
+	<script type="text/javascript" src="js/custom.js">
+	</script>	
+</head>
+<body>
+<div class="container-fluid banner-top">
+	<div class="row">
+		<img src="images/oiebanner-1-min.jpg" class="img-responsive full-width-thing"/>
+	</div>
+	
+</div>
+
+<div class="container ">
+	<div class="row justify-content-center smoke ">
+	<div class="col-6">
+		<form method="post" id="isss">			
+				<fieldset class="form-group">      
+					<br/>
+					<img src="images/OIE-solid-3lines-black.png" class="full-width-thing"/>
+					<label for="gtid" class="full-width-thing">					
+					<br/>
+					<br/>				
+					<h4 class="text-center">Please <strong>TAP</strong>&nbsp;<i class="fa fa-id-card" aria-hidden="true"></i> BuzzCard to Check-In&nbsp<i class="fa fa-play faa-horizontal animated" aria-hidden="true"></i></h4>
+					<img src="https://oie2.gatech.edu/custom/ticket/Boopcat.gif" class="full-width-thing"/>
+					<br/>					
+					<br/>																
+					</label>
+					<div id="gtidholder" class="input-group">
+					<span class="input-group-addon"><i class="fa fa-id-card" aria-hidden="true"></i></span>
+					<input id="gtid" class="form-control" type="number" placeholder="Or enter your GTID Number (or type 0)" title="GTID Number (or type 0)" name="gtid" size=20 autofocus oninput="">
+					</div>
+					<div id="nogtid" class="display-none">						
+						<label for="name"><strong>Please type in your full name:</strong></label>
+						<div class="input-group">
+						<span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
+						<input id="name" class="form-control" type="text" placeholder="Full Name (George P Burdell)" title="Enter your full name" name="name" size=20>
+						</div>
+						
+						<label for="emailadd"><strong>Please enter your Email Address</strong></label>
+						<div class="input-group">
+						<span class="input-group-addon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+						<input id="emailadd" class="form-control" type="text" placeholder="Email (gburdell3@gatech.edu)" name="emailadd" pattern="[a-zA-Z0-9@.]{3,}" title="Enter in your email only" size=20>
+						</div>
+					</div>					
+					<br/>
+					<div id="form2" class="display-none full-width-thing">
+					<label for="subject" class="full-width-thing"><h4 class="text-center">Welcome! What is your reason for visiting?</h4></label>
+						<hr/>
+						<div class="full-width-thing center-left">
+							<div class="form-check">
+							<label for="option-one" class="custom-control custom-radio">
+							<input id="option-one" class="custom-control-input" type="radio" name="subject" value="International Student Walk-in" checked>
+							<span class="custom-control-indicator"></span>
+							<span class="custom-control-description"><h5><strong><i class="fa fa-graduation-cap">&nbsp;</i>International Student Walk-In&nbsp;</strong></h5></span>
+							</label>
+							</div>
+							<div class="form-check">														
+							<label for="option-two"  class="custom-control custom-radio">
+							<input id="option-two" class="custom-control-input" type="radio" name="subject" value="Scholar or Student Intern Walk-in">
+							<span class="custom-control-indicator"></span>
+							<span class="custom-control-description"><h5><strong><i class="fa fa-globe">&nbsp;</i>Scholar/Student Intern Walk-In</strong></h5></span>
+							</label>
+							</div>
+							<div class="form-check">							
+							<label for="option-three" class="custom-control custom-radio">
+							<input id="option-three" class="custom-control-input"  type="radio" name="subject" value="Travel Signature">		
+							<span class="custom-control-indicator"></span>
+							<span class="custom-control-description"><h5><strong><i class="fa fa-plane">&nbsp;</i>Travel Signature</strong></h5></span>
+							</label>
+								<h5 id="travelmsg" style="display:none; color: red">Please hand your I-20 to the front desk, hit submit and wait for an advisor.</h5>
+							</div>
+							<div class="form-check">							
+							<label for="option-four"  class="custom-control custom-radio" value="New Student Check-in">
+							<input id="option-four" class="custom-control-input"  type="radio" name="subject" value="New Student Check-in">		
+							<span class="custom-control-indicator"></span>
+							<span class="custom-control-description"><h5><strong><i class="fa fa-flask">&nbsp;</i>New Student Check-In!</strong></h5></span>
+							</label>
+							</div>
+							<div class="form-check">							
+							<label for="option-five" class="custom-control custom-radio" value="Appointment">
+							<input id="option-five" class="custom-control-input" type="radio" name="subject" value="Appointment">
+							<span class="custom-control-indicator"></span>
+							<span class="custom-control-description"><h5><strong><i class="fa fa-calendar-check-o" aria-hidden="true"></i>&nbsp; International Student Online Appointment</strong></h5></span>
+							</label>
+							</div>							
+						</div>
+					</div>
+				</fieldset>
+				<div id="form-submit" class="text-center display-none">							
+					<button type="submit" class="btn btn-primary btn-lg" onclick="createTicket()">Submit</button>
+					<button type="reset" class="btn btn-primary btn-lg" onclick="window.location.reload()">Reset</button>
+				</div>		
+				<br/>
+				<br/>			
+				<br/>
+				<br/>
+				<br/>
+				<br/>	
+		</form>
+	</div>
+	</div>
+</div>
+</body>  
+</html>
